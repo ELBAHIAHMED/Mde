@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NoSql:DO_DB xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:NoSql="http://www.nosql.com" xsi:schemaLocation="http://www.nosql.com ../metamodel/NoSql.ecore" db_name="DB">
+  <collection c_name="User">
+    <document doc_name="1">
+      <couple_D attribut="Name" value_="Ahmed"/>
+      <couple_D attribut="Age" value_="22"/>
+      <couple_D attribut="Profession" value_="Student"/>
+      <couple_D attribut="City" value_="Marrakech"/>
+      <couple_D attribut="User_ID" value_="12"/>
+    </document>
+  </collection>
+</NoSql:DO_DB>

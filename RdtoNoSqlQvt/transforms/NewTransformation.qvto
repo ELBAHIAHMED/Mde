@@ -1,0 +1,37 @@
+modeltype NoSql uses "http://www.nosql.com";
+modeltype Relational uses "http://www.relational.com";
+transformation RDBMS2OD(in BD_R:Relational, out DO_NOSQL:NoSql);
+
+main() {
+ BD_R.objects()[BDR]->map BDR2DO_DB();
+}
+
+// Transforamtion from relational DB to Document oriented DB
+mapping BDR::BDR2DO_DB () :
+DO_DB {
+ db_name:= self.bdr_name;
+ collection := BD_R.objects()[Table] -> map tableToCollection();
+}
+
+// Transformation from table to collection
+
+mapping Table::tableToCollection():_Collection{
+c_name:=self.T_name;
+document:= self.row -> map rowToDocument();
+}
+
+// Transformation from rows to collection 
+
+mapping Row::rowToDocument():Document{
+doc_name := self.id;
+self.column ->forEach(c) {
+couple_D += c.map ToCouple();
+}
+}
+
+//Transformation from column to couple
+mapping Column::ToCouple():Couple{
+ attribut:=self.name;
+ value_ := self.value ;
+}
+

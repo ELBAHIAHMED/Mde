@@ -1,0 +1,35 @@
+
+[module generate('http://www.nosql.com')]
+[template public generateElement(NoSql: DO_DB )]
+[comment @main/]
+[for (c : Collection | NoSql.collection)]
+ [file (NoSql.db_name.concat('/').concat(c.c_name)
+.concat('.JSON'), false, 'UTF-8')]
+ [to_Document(c)/]
+ [/file]
+[/for]
+[/template]
+[template public to_Document(c:Collection)]
+
+[for (Doc : Document | c.document)]
+	{
+		[for (cp : Couple | Doc.couple_D)separator (',')]
+			"[cp.attribut/]": "[cp.value_/]"
+		[/for]
+		[if (c.document->size()>0)],
+			[for (dc : Document | Doc.couple_V)separator (',')]
+				"[dc.name/]": [ '[' /]
+				[document(dc)/] [ ']' /]
+			[/for]
+		[/if]
+	}
+[/for]
+
+[/template]
+[template public document(dc:Document)]
+[for (cp : Couple | dc.couple_D)]
+	[for (cp : Couple | dc.couple_D)separator (',')]
+		[cp.value_/]"
+	[/for]
+[/for]
+[/template]

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Relational:BDR
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:Relational="http://www.relational.com"
+    xsi:schemaLocation="http://www.relational.com ../metamodel/Relational.ecore"
+    bdr_name="DB">
+  <table_C T_name="User">
+    <row id="1">
+      <column
+          name="Name"
+          value="Ahmed"/>
+      <column
+          name="Age"
+          value="22"/>
+      <column
+          name="Profession"
+          value="Student"/>
+      <column
+          name="City"
+          value="Marrakech"/>
+      <column
+          name="User_ID"
+          value="12"/>
+    </row>
+    <column
+        name="Name"/>
+    <column
+        name="City"/>
+    <column
+        name="Profession"/>
+    <column
+        name="Age"/>
+    <p_key is_primary="true"
+        name="User_ID"/>
+  </table_C>
+</Relational:BDR>
